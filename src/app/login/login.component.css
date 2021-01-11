@@ -50,3 +50,9 @@ button {
 mat-label{
   color: white!important;
 }
+.senha-eye{
+  display: flex;
+}
+.senha-eye .material-icons{
+  cursor: pointer;
+}

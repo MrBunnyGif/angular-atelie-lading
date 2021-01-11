@@ -8,8 +8,15 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  hidePassword: boolean = true;
+  eyeIcon: string = 'visibility';
+  
   constructor() { }
 
   ngOnInit(): void { }
   
+  togglePass() {
+    this.hidePassword = !this.hidePassword;
+    !this.hidePassword? this.eyeIcon = 'visibility_off' : this.eyeIcon = 'visibility';
+  }
 }
