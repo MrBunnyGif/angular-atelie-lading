@@ -6,8 +6,8 @@
       </svg>
       
       <div class="btns">
-        <button href="#changes" routerLink="login" mat-flat-button>Login</button>
-        <button href="#changes" routerLink="create-account" mat-flat-button>Cadastre-se</button>
+        <button (click)="scroll()" routerLink="login" mat-flat-button>Login</button>
+        <button (click)="scroll()" routerLink="create-account" mat-flat-button>Cadastre-se</button>
       </div>
     </div>
     <div class="image">
@@ -15,6 +15,7 @@
     </div>
   </div>
 </div>
+<div #forms></div>
 <router-outlet id="changes"></router-outlet>
 <div class="footer desktop">
   <div class="footer-main content">
