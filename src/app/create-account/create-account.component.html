@@ -5,63 +5,60 @@
       Preencha os campos abaixo para validar sua participação na campanha e concorrer aos prêmios.
     </div>
     <div class="form">
-      <form [formGroup]="form" (ngSubmit)="register()">
-        <mat-form-field class="name" appearance="legacy">
-          <mat-label>Nome</mat-label>
-          <input required formControlName="name" #nome matInput>
-          <mat-error *ngIf="form.get('name').errors?.required">Insira um nome</mat-error>
+      <mat-form-field class="name" appearance="legacy">
+        <mat-label>Nome</mat-label>
+        <input [formControl]="nome" #name required matInput>
+        <mat-error *ngIf="nome.invalid">Insira um nome</mat-error>
+      </mat-form-field>
+
+      <div class="line">
+        <mat-form-field class="half" appearance="standard">
+          <mat-label>CPF</mat-label>
+          <input [formControl]="CPF" required mask="CPF_CNPJ" matInput>
+          <mat-error *ngIf="CPF.invalid">Insira um cpf válido</mat-error>
         </mat-form-field>
 
-        <div class="line">
-          <mat-form-field class="half" appearance="standard">
-            <mat-label>CPF</mat-label>
-            <input required formControlName="cpf" mask="CPF_CNPJ" matInput>
-            <mat-error *ngIf="form.get('cpf').errors?.required">Insira um CPF válido</mat-error>
-          </mat-form-field>
+        <mat-form-field class="half" appearance="standard">
+          <mat-label>E-mail</mat-label>
+          <input [formControl]="email" required matInput>
+          <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
 
-          <mat-form-field class="half" appearance="standard">
-            <mat-label>E-mail</mat-label>
-            <input required formControlName="email" matInput>
-            <mat-error *ngIf="form.get('email').errors?.required || form.get('email').errors?.email">Insira um email
-              válido</mat-error>
-          </mat-form-field>
-        </div>
+      <div class="line">
+        <mat-form-field class="half" appearance="standard">
+          <mat-label>Senha</mat-label>
+          <input [(ngModel)]="senha" minlength="6" [type]="hidePassword? 'password' : 'text'" required matInput>
+          <mat-error>senha incorreta</mat-error>
+        </mat-form-field>
 
-        <div class="line">
-          <mat-form-field class="half" appearance="standard">
-            <mat-label>Senha</mat-label>
-            <input  minlength="6" [type]="hidePassword? 'password' : 'text'" required formControlName="senha" matInput>
-            <mat-error *ngIf="form.get('senha').touched || form.get('senha').dirty">senha incorreta</mat-error>
-          </mat-form-field>
+        <mat-form-field class="half" appearance="standard">
+          <mat-label>Confirme sua senha</mat-label>
+          <input [(ngModel)]=" confirmSenha" minlength="6" [type]="hidePassword? 'password' : 'text'" required matInput>
+          <mat-error>senha incorreta </mat-error>
+        </mat-form-field>
+      </div>
 
-          <mat-form-field class="half" appearance="standard">
-            <mat-label>Confirme sua senha</mat-label>
-            <input  minlength="6" [type]="hidePassword? 'password' : 'text'" required formControlName="confirmSenha" matInput>
-            <mat-error *ngIf="form.get('confirmSenha').touched || form.get('confirmSenha').dirty">senha incorreta</mat-error>
-          </mat-form-field>
-        </div>
+      <div class="line">
+        <mat-form-field class="half" appearance="standard">
+          <mat-label>Empresa</mat-label>
+          <input [(ngModel)]="empresa" classificacao="empresa" matInput>
+        </mat-form-field>
 
-        <div class="line">
-          <mat-form-field class="half" appearance="standard">
-            <mat-label>Empresa</mat-label>
-            <input classificacao="empresa" matInput>
-          </mat-form-field>
-
-          <mat-form-field class="half" appearance="standard">
-            <mat-label>Classificação</mat-label>
-            <mat-select formControlName="classificacao">
-              <mat-option value="Gerente">Gerente</mat-option>
-              <mat-option value="Revendedor">Revendedor</mat-option>
-              <mat-option value="Distribuidor">Distribuidor</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="action">
-          <button mat-flat-button>
-            ENVIAR
-          </button>
-        </div>
-      </form>
+        <mat-form-field class="half" appearance="standard">
+          <mat-label>Classificação</mat-label>
+          <mat-select [(ngModel)]="classificacao">
+            <mat-option value="Gerente">Gerente</mat-option>
+            <mat-option value="Revendedor">Revendedor</mat-option>
+            <mat-option value="Distribuidor">Distribuidor</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="action">
+        <button mat-flat-button>
+          ENVIAR
+        </button>
+      </div>
     </div>
   </div>
 </div>
