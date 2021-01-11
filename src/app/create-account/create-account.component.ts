@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { CreatedComponent } from '../dialogs/created/created.component';
+import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -14,6 +15,7 @@ export class CreateAccountComponent implements OnInit {
   empresa = "";
   classificacao = "";
   hidePassword: boolean = true;
+  eyeIcon: string = 'visibility';
 
   email = new FormControl('', [Validators.required, Validators.email]);
   senha = new FormControl('', [Validators.required, Validators.required, Validators.minLength(6)]);
@@ -22,8 +24,8 @@ export class CreateAccountComponent implements OnInit {
   CPF = new FormControl({ value: null, disabled: false }, this.isValidCpf());
 
   constructor(
-		public dialog: MatDialog,
-
+    public dialog: MatDialog,
+    private router: Router,
   ) { }
 
   ngOnInit(): void { }
@@ -116,8 +118,14 @@ export class CreateAccountComponent implements OnInit {
         'Classificação': this.classificacao,
       }
       const currentDialog = this.dialog.open(CreatedComponent);
+      currentDialog.afterClosed().subscribe(data => this.router.navigateByUrl('login'))
     }
     else
       return
+  }
+
+  togglePass() {
+    this.hidePassword = !this.hidePassword;
+    !this.hidePassword? this.eyeIcon = 'visibility_off' : this.eyeIcon = 'visibility';
   }
 }

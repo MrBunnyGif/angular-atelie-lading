@@ -53,3 +53,9 @@ mat-label {
 ::ng-deep .mat-select-arrow {
   border-top: 5px solid white!important;
 }
+.senha-eye{
+  display: flex;
+}
+.senha-eye .material-icons{
+  cursor: pointer;
+}

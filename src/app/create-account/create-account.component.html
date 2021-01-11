@@ -28,13 +28,23 @@
       <div class="line">
         <mat-form-field class="half" appearance="standard">
           <mat-label>Senha</mat-label>
-          <input [formControl]="senha" [type]="hidePassword? 'password' : 'text'" required matInput>
+          <div class="senha-eye">
+            <input [formControl]="senha" [type]="hidePassword? 'password' : 'text'" required matInput>
+            <span class="material-icons" (click)="togglePass()">
+              {{eyeIcon}}
+            </span>
+          </div>
           <mat-error>Senha muito fraca. Mínimo de 6 caractéres</mat-error>
         </mat-form-field>
 
         <mat-form-field class="half" appearance="standard">
           <mat-label>Confirme sua senha</mat-label>
-          <input [formControl]=" confirmSenha" [type]="hidePassword? 'password' : 'text'" required matInput>
+          <div class="senha-eye">
+            <input [formControl]=" confirmSenha" [type]="hidePassword? 'password' : 'text'" required matInput>
+            <span class="material-icons" (click)="togglePass()">
+              {{eyeIcon}}
+            </span>
+          </div>
           <mat-error>Senhas não conferem </mat-error>
         </mat-form-field>
       </div>
