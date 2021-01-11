@@ -28,6 +28,9 @@
   flex-direction: column;
   width: 100%;
 }
+a {
+  cursor: pointer;
+}
 .options a {
   color: #e8a612;
   text-decoration: none;
@@ -59,7 +62,8 @@ button {
 ::ng-deep.mat-form-field-ripple {
   background-color: white !important;
 }
-mat-label, label {
+mat-label,
+label {
   color: white !important;
   font-family: lato-reg;
 }

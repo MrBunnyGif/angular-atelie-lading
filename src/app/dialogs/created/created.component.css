@@ -3,7 +3,19 @@
   src: url(../../../assets/fonts/Lato-Bold.ttf);
 }
 
-h2 {
+h2,
+button {
   color: white;
   font-family: lato-bold;
+}
+button {
+  background: #e8a612;
+  border: 2px solid white;
+}
+.email {
+  display: flex;
+  justify-content: space-between;
+}
+input, label, mat-label{
+  color: white
 }

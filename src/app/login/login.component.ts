@@ -51,4 +51,10 @@ export class LoginComponent implements OnInit {
         data: { text: 'Usuário não encontrado' }
       });
   }
+
+  forgotPass() {
+    this.dialog.open(CreatedComponent, {
+      data: {}
+    });
+  }
 }

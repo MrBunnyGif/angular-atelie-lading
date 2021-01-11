@@ -12,6 +12,6 @@ export class CreateAccountService {
   ) { }
 
   createAccount(data) {
-    return this.http.post(`http://virtserver.swaggerhub.com/ateliedepropaganda/register/1.0.0/costumer`, data)
+    return this.http.post(`https://virtserver.swaggerhub.com/ateliedepropaganda/register/1.0.0/costumer`, data)
   }
 }

@@ -15,5 +15,7 @@ export class CreatedComponent implements OnInit {
 
   ngOnInit(): void {
     this.text = this.data.text
+    console.log(this.text)
+    console.log(this.data)
   }
 }

@@ -1,1 +1,8 @@
-<h2>{{text || 'ola'}}</h2>
+<h2>{{text || 'Insira seu email cadastrado'}}</h2>
+<div class="email" *ngIf="text == undefined">
+  <mat-form-field appearance="legacy">
+    <mat-label>E-mail</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <button mat-dialog-close mat-flat-button>Enviar</button>
+</div>
