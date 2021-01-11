@@ -1,0 +1,46 @@
+.header {
+  background: url("../assets/background.png");
+  justify-content: center;
+  display: flex;
+  align-items: flex-end;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: auto;
+  height: 100vh;
+}
+.land-content {
+  display: flex;
+  width: 90%;
+  max-width: 1360px;
+  justify-content: space-between;
+  align-items: center;
+}
+.actions {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.actions svg {
+  margin-bottom: 50px;
+}
+.btns {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.btns button {
+  background: #e8a612;
+  color: white;
+  font-size: 1.4rem;
+  width: 40%;
+  height: 40px;
+}
+.image {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+}
+.image img {
+  width: 100%;
+}
