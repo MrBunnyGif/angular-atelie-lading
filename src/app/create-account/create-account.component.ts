@@ -17,7 +17,7 @@ export class CreateAccountComponent implements OnInit {
   classificacao = "";
   hidePassword: boolean = true;
   eyeIcon: string = 'visibility';
-  // usuarios: any[] = localStorage.getItem('users') || [];
+  usuarios: any[] = JSON.parse(localStorage.getItem('users')) || [];
   nome = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
   CPF = new FormControl({ value: null, disabled: false }, this.isValidCpf());
@@ -121,12 +121,17 @@ export class CreateAccountComponent implements OnInit {
       }
       this.createAccount.createAccount(dados).subscribe(
         data => {
-          // localStorage.setItem('user')
+          this.usuarios.push(dados)
+          localStorage.setItem('users', JSON.stringify(this.usuarios))
           console.log('data retornada: ', data);
-          const currentDialog = this.dialog.open(CreatedComponent);
+          const currentDialog = this.dialog.open(CreatedComponent, { data: { text: 'CADASTRO REALIZADO COM SUCESSO' } });
           currentDialog.afterClosed().subscribe(data => this.router.navigateByUrl('login'))
         },
-        error => console.log('erro retornado: ', error)
+        error => {
+          console.log('erro retornado: ', error);
+          const currentDialog = this.dialog.open(CreatedComponent, { data: { text: 'erro ao realizar o cadastro. por favor tente novamente mais tarde' } });
+          currentDialog.afterClosed().subscribe(data => this.router.navigateByUrl('login'))
+        }
       )
     }
     else

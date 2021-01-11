@@ -6,12 +6,12 @@
     <div class="form">
       <mat-form-field appearance="legacy">
         <mat-label>Digite seu cpf</mat-label>
-        <input #cpf mask="CPF_CNPJ" matInput>
+        <input [(ngModel)]="usuario" #cpf mask="CPF_CNPJ" matInput>
       </mat-form-field>
       <mat-form-field class="pass" appearance="standard">
         <mat-label>Digite sua senha</mat-label>
         <div class="senha-eye">
-          <input matInput [type]="hidePassword? 'password' : 'text'">
+          <input [(ngModel)]="senha" matInput [type]="hidePassword? 'password' : 'text'">
           <span class="material-icons" (click)="togglePass()">
             {{eyeIcon}}
           </span>
@@ -27,7 +27,7 @@
         Esqueceu sua senha?
       </a>
     </div>
-    <button mat-flat-button>
+    <button (click)="login()" mat-flat-button>
       Login
     </button>
   </div>
