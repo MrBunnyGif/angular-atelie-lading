@@ -1,3 +1,11 @@
+@font-face {
+  font-family: lato-black;
+  src: url(../../assets/fonts/Lato-Black.ttf);
+}
+@font-face {
+  font-family: lato-reg;
+  src: url(../../assets/fonts/Lato-Regular.ttf);
+}
 .container {
   width: 100%;
   background: url("../../assets/background-marrom.png");
@@ -13,6 +21,7 @@
 .container h2 {
   width: fit-content;
   margin-top: 0;
+  font-family: lato-black;
 }
 .form {
   display: flex;
@@ -50,12 +59,16 @@ button {
 ::ng-deep.mat-form-field-ripple {
   background-color: white !important;
 }
-mat-label {
+mat-label, label {
   color: white !important;
+  font-family: lato-reg;
 }
 .senha-eye {
   display: flex;
 }
 .senha-eye .material-icons {
   cursor: pointer;
+}
+input {
+  font-family: lato-reg;
 }

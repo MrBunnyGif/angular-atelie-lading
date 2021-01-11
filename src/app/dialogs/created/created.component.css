@@ -1,3 +1,9 @@
-h2{
+@font-face {
+  font-family: lato-bold;
+  src: url(../../../assets/fonts/Lato-Bold.ttf);
+}
+
+h2 {
   color: white;
+  font-family: lato-bold;
 }

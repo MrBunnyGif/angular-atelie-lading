@@ -1,3 +1,15 @@
+@font-face {
+  font-family: lato-black;
+  src: url(../../assets/fonts/Lato-Black.ttf);
+}
+@font-face {
+  font-family: lato-semi-b;
+  src: url(../../assets/fonts/Lato-Semibold.ttf);
+}
+@font-face {
+  font-family: lato-reg;
+  src: url(../../assets/fonts/Lato-Regular.ttf);
+}
 .cointainer {
   background-image: url("../../assets/background-marrom.png");
   min-height: 300px;
@@ -13,6 +25,12 @@
   justify-content: center;
   align-items: center;
 }
+h2{
+  font-family: lato-black;
+}
+h2 ~ p{
+  font-family: lato-semi-b;
+}
 .title,
 .form {
   color: white;
@@ -23,6 +41,7 @@
   font-size: 1.2rem;
   color: white;
   height: 40px;
+  font-family: lato-black;
 }
 .name {
   width: 90%;
@@ -46,6 +65,10 @@
 }
 mat-label {
   color: white !important;
+  font-family: lato-reg;
+}
+input{
+  font-family: lato-reg;
 }
 :host /deep/ .mat-select-value-text {
   color: white !important;
