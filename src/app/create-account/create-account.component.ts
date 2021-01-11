@@ -1,5 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { CreatedComponent } from '../dialogs/created/created.component';
+import { MatDialog } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-create-account',
   templateUrl: './create-account.component.html',
@@ -18,7 +21,10 @@ export class CreateAccountComponent implements OnInit {
   nome = new FormControl('', [Validators.required]);
   CPF = new FormControl({ value: null, disabled: false }, this.isValidCpf());
 
-  constructor() { }
+  constructor(
+		public dialog: MatDialog,
+
+  ) { }
 
   ngOnInit(): void { }
 
@@ -109,7 +115,7 @@ export class CreateAccountComponent implements OnInit {
         'Empresa': this.empresa,
         'Classificação': this.classificacao,
       }
-      console.log('dados: ', dados)
+      const currentDialog = this.dialog.open(CreatedComponent);
     }
     else
       return
