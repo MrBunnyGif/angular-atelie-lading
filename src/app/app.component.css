@@ -1,3 +1,8 @@
+.content {
+  width: 90%;
+  max-width: 1360px;
+}
+
 .header {
   background: url("../assets/background.png");
   justify-content: center;
@@ -10,8 +15,7 @@
 }
 .land-content {
   display: flex;
-  width: 90%;
-  max-width: 1360px;
+
   justify-content: space-between;
   align-items: center;
 }
@@ -43,4 +47,37 @@
 }
 .image img {
   width: 100%;
+}
+.footer {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.footer .desc {
+  width: 60%;
+  color: #444444;
+}
+.desc p {
+  text-align: justify;
+  font-size: 0.8rem;
+}
+.desc h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+.base-line {
+  background: #e8a612;
+  font-size: 0.9rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.base-main {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+.base-main a {
+  text-decoration: none;
+  color: darkslategray;
 }
