@@ -8,8 +8,6 @@ import { AbstractControl, FormBuilder, FormControl, Validators } from '@angular/
 export class CreateAccountComponent implements OnInit {
   @ViewChild('name') primeiroCampo: ElementRef;
   @ViewChild('mail') mail: ElementRef;
-  // senha = "";
-  // confirmSenha = "";
   empresa = "";
   classificacao = "";
   hidePassword: boolean = true;
@@ -85,10 +83,6 @@ export class CreateAccountComponent implements OnInit {
     };
   }
 
-  teste() {
-    console.log(this.nome.value)
-  }
-
   verifyPassword() {
     return (control: AbstractControl): Validators => {
       const confirmSenha = control.value;
@@ -99,5 +93,25 @@ export class CreateAccountComponent implements OnInit {
         return null
       }
     }
+  }
+
+  verifyForm() {
+    return this.nome.invalid || this.email.invalid || this.CPF.invalid || this.senha.invalid || this.confirmSenha.invalid
+  }
+
+  register() {
+    if (!this.verifyForm()) {
+      const dados = {
+        'Nome': this.nome.value,
+        'E-mail': this.email.value,
+        'CPF': this.CPF.value,
+        'Senha': this.senha.value,
+        'Empresa': this.empresa,
+        'Classificação': this.classificacao,
+      }
+      console.log('dados: ', dados)
+    }
+    else
+      return
   }
 }

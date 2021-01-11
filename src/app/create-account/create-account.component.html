@@ -7,7 +7,7 @@
     <div class="form">
       <mat-form-field class="name" appearance="legacy">
         <mat-label>Nome</mat-label>
-        <input (change)="teste()" [formControl]="nome" #name required matInput>
+        <input [formControl]="nome" #name required matInput>
         <mat-error *ngIf="nome.invalid">Insira um nome</mat-error>
       </mat-form-field>
 
@@ -29,7 +29,7 @@
         <mat-form-field class="half" appearance="standard">
           <mat-label>Senha</mat-label>
           <input [formControl]="senha" [type]="hidePassword? 'password' : 'text'" required matInput>
-          <mat-error>Mínimo de 6 caractéres</mat-error>
+          <mat-error>Senha muito fraca. Mínimo de 6 caractéres</mat-error>
         </mat-form-field>
 
         <mat-form-field class="half" appearance="standard">
@@ -55,7 +55,7 @@
         </mat-form-field>
       </div>
       <div class="action">
-        <button mat-flat-button>
+        <button (click)="register()" mat-flat-button>
           ENVIAR
         </button>
       </div>
