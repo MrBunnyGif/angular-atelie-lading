@@ -19,13 +19,7 @@ export class CreateAccountComponent implements OnInit {
     senha: {
       required: 'Insira uma senha',
       minlenght: 'Mínimo de 6 caractéres',
-    },
-    ConfirmSenha: {
-      required: 'Confirme a senha',
-      minlenght: 'Mínimo de 6 caractéres',
-    },
-    grupoSenhas: {
-      naoConfirmam: 'As senhas não são iguais'
+      notSame: 'As senhas não conferem',
     },
     email: {
       required: 'Insira um endereço de e-mail',
@@ -33,6 +27,12 @@ export class CreateAccountComponent implements OnInit {
     }
   }
   @ViewChild('nome') primeiroCampo: ElementRef;
+  formErrors = {
+    name: '',
+    email: '',
+    cpf: '',
+    senha: '',
+  }
 
   constructor(
     private formBuilder: FormBuilder,
@@ -58,6 +58,8 @@ export class CreateAccountComponent implements OnInit {
       cpf: ['', [
         Validators.required,
       ]],
+      empresa: [''],
+      classificacao: [''],
       senha: ['', [
         Validators.required,
         Validators.minLength(6)
@@ -66,14 +68,19 @@ export class CreateAccountComponent implements OnInit {
         Validators.required,
         Validators.minLength(6)
       ]],
-      empresa: [''],
-      classificacao: [''],
     });
   }
 
   register() {
+    this.verifyPassword();
     if (this.form.invalid)
       return
     alert('cadastrado com sucesso')
+  }
+
+  verifyPassword() {
+    if (this.form.value.senha != this.form.value.confirmSenha)
+      this.formErrors.senha = this.validationMessages.senha.notSame;
+      console.log('formErrors.senha: ', this.formErrors.senha)
   }
 }

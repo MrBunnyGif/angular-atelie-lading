@@ -5,33 +5,39 @@
       Preencha os campos abaixo para validar sua participação na campanha e concorrer aos prêmios.
     </div>
     <div class="form">
-      <form [formGroup]="form">
+      <form [formGroup]="form" (ngSubmit)="register()">
         <mat-form-field class="name" appearance="legacy">
           <mat-label>Nome</mat-label>
-          <input formControlName="name" #nome matInput>
+          <input required formControlName="name" #nome matInput>
+          <mat-error *ngIf="form.get('name').errors?.required">Insira um nome</mat-error>
         </mat-form-field>
 
         <div class="line">
           <mat-form-field class="half" appearance="standard">
             <mat-label>CPF</mat-label>
-            <input formControlName="cpf" mask="CPF_CNPJ" matInput>
+            <input required formControlName="cpf" mask="CPF_CNPJ" matInput>
+            <mat-error *ngIf="form.get('cpf').errors?.required">Insira um CPF válido</mat-error>
           </mat-form-field>
 
           <mat-form-field class="half" appearance="standard">
             <mat-label>E-mail</mat-label>
-            <input formControlName="email" matInput>
+            <input required formControlName="email" matInput>
+            <mat-error *ngIf="form.get('email').errors?.required || form.get('email').errors?.email">Insira um email
+              válido</mat-error>
           </mat-form-field>
         </div>
 
         <div class="line">
           <mat-form-field class="half" appearance="standard">
             <mat-label>Senha</mat-label>
-            <input formControlName="senha" matInput>
+            <input  minlength="6" [type]="hidePassword? 'password' : 'text'" required formControlName="senha" matInput>
+            <mat-error *ngIf="form.get('senha').touched || form.get('senha').dirty">senha incorreta</mat-error>
           </mat-form-field>
 
           <mat-form-field class="half" appearance="standard">
             <mat-label>Confirme sua senha</mat-label>
-            <input formControlName="confirmSenha" matInput>
+            <input  minlength="6" [type]="hidePassword? 'password' : 'text'" required formControlName="confirmSenha" matInput>
+            <mat-error *ngIf="form.get('confirmSenha').touched || form.get('confirmSenha').dirty">senha incorreta</mat-error>
           </mat-form-field>
         </div>
 
@@ -50,13 +56,12 @@
             </mat-select>
           </mat-form-field>
         </div>
-
+        <div class="action">
+          <button mat-flat-button>
+            ENVIAR
+          </button>
+        </div>
       </form>
-    </div>
-    <div class="action">
-      <button mat-flat-button>
-        ENVIAR
-      </button>
     </div>
   </div>
 </div>
