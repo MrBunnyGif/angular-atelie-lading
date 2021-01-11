@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, Validators } from '@angular/
 import { CreatedComponent } from '../dialogs/created/created.component';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { CreateAccountService } from '../create-account.service';
 
 @Component({
   selector: 'app-create-account',
@@ -16,16 +17,17 @@ export class CreateAccountComponent implements OnInit {
   classificacao = "";
   hidePassword: boolean = true;
   eyeIcon: string = 'visibility';
-
+  // usuarios: any[] = localStorage.getItem('users') || [];
+  nome = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
+  CPF = new FormControl({ value: null, disabled: false }, this.isValidCpf());
   senha = new FormControl('', [Validators.required, Validators.required, Validators.minLength(6)]);
   confirmSenha = new FormControl('', [Validators.required, Validators.minLength(6), this.verifyPassword()]);
-  nome = new FormControl('', [Validators.required]);
-  CPF = new FormControl({ value: null, disabled: false }, this.isValidCpf());
 
   constructor(
     public dialog: MatDialog,
     private router: Router,
+    private createAccount: CreateAccountService
   ) { }
 
   ngOnInit(): void { }
@@ -110,15 +112,22 @@ export class CreateAccountComponent implements OnInit {
   register() {
     if (!this.verifyForm()) {
       const dados = {
-        'Nome': this.nome.value,
-        'E-mail': this.email.value,
-        'CPF': this.CPF.value,
-        'Senha': this.senha.value,
-        'Empresa': this.empresa,
-        'Classificação': this.classificacao,
+        "name": this.nome.value,
+        "cpf": this.CPF.value,
+        "email": this.email.value,
+        "password": this.senha.value,
+        "company": this.empresa,
+        "classification": this.classificacao,
       }
-      const currentDialog = this.dialog.open(CreatedComponent);
-      currentDialog.afterClosed().subscribe(data => this.router.navigateByUrl('login'))
+      this.createAccount.createAccount(dados).subscribe(
+        data => {
+          // localStorage.setItem('user')
+          console.log('data retornada: ', data);
+          const currentDialog = this.dialog.open(CreatedComponent);
+          currentDialog.afterClosed().subscribe(data => this.router.navigateByUrl('login'))
+        },
+        error => console.log('erro retornado: ', error)
+      )
     }
     else
       return
@@ -126,6 +135,6 @@ export class CreateAccountComponent implements OnInit {
 
   togglePass() {
     this.hidePassword = !this.hidePassword;
-    !this.hidePassword? this.eyeIcon = 'visibility_off' : this.eyeIcon = 'visibility';
+    !this.hidePassword ? this.eyeIcon = 'visibility_off' : this.eyeIcon = 'visibility';
   }
 }

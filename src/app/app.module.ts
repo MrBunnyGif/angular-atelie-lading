@@ -11,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 @NgModule({
@@ -28,6 +29,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
+    HttpClientModule,
     NgxMaskModule.forRoot(),
     ReactiveFormsModule,
     MatSelectModule,
