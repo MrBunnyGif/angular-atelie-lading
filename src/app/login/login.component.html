@@ -6,7 +6,7 @@
     <div class="form">
       <mat-form-field appearance="legacy">
         <mat-label>Digite seu cpf</mat-label>
-        <input mask="CPF_CNPJ" matInput>
+        <input #cpf mask="CPF_CNPJ" matInput>
       </mat-form-field>
       <mat-form-field class="pass" appearance="standard">
         <mat-label>Digite sua senha</mat-label>
@@ -20,10 +20,10 @@
       </mat-form-field>
     </div>
     <div class="options">
-      <a routerLink="create-account">
+      <a routerLink="/create-account">
         Ainda não é cadastrado?
       </a>
-      <a>
+      <a routerLink="/create-account">
         Esqueceu sua senha?
       </a>
     </div>

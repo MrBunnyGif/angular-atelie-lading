@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,8 @@ export class LoginComponent implements OnInit {
 
   hidePassword: boolean = true;
   eyeIcon: string = 'visibility';
-  
+  @ViewChild('cpf') primeiroCampo: ElementRef;
+
   constructor() { }
 
   ngOnInit(): void { }
@@ -18,5 +19,9 @@ export class LoginComponent implements OnInit {
   togglePass() {
     this.hidePassword = !this.hidePassword;
     !this.hidePassword? this.eyeIcon = 'visibility_off' : this.eyeIcon = 'visibility';
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => this.primeiroCampo.nativeElement.focus(), 300);
   }
 }

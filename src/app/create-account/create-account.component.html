@@ -12,13 +12,13 @@
       </mat-form-field>
 
       <div class="line">
-        <mat-form-field class="half" appearance="standard">
+        <mat-form-field class="half left" appearance="standard">
           <mat-label>CPF</mat-label>
           <input [formControl]="CPF" required mask="CPF_CNPJ" matInput>
           <mat-error *ngIf="CPF.invalid">Insira um cpf válido</mat-error>
         </mat-form-field>
 
-        <mat-form-field class="half" appearance="standard">
+        <mat-form-field class="half right" appearance="standard">
           <mat-label>E-mail</mat-label>
           <input [formControl]="email" required matInput>
           <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
@@ -26,7 +26,7 @@
       </div>
 
       <div class="line">
-        <mat-form-field class="half" appearance="standard">
+        <mat-form-field class="half left" appearance="standard">
           <mat-label>Senha</mat-label>
           <div class="senha-eye">
             <input [formControl]="senha" [type]="hidePassword? 'password' : 'text'" required matInput>
@@ -37,7 +37,7 @@
           <mat-error>Senha muito fraca. Mínimo de 6 caractéres</mat-error>
         </mat-form-field>
 
-        <mat-form-field class="half" appearance="standard">
+        <mat-form-field class="half right" appearance="standard">
           <mat-label>Confirme sua senha</mat-label>
           <div class="senha-eye">
             <input [formControl]=" confirmSenha" [type]="hidePassword? 'password' : 'text'" required matInput>
@@ -50,12 +50,12 @@
       </div>
 
       <div class="line">
-        <mat-form-field class="half" appearance="standard">
+        <mat-form-field class="half left" appearance="standard">
           <mat-label>Empresa</mat-label>
           <input [(ngModel)]="empresa" classificacao="empresa" matInput>
         </mat-form-field>
 
-        <mat-form-field class="half" appearance="standard">
+        <mat-form-field class="half right" appearance="standard">
           <mat-label>Classificação</mat-label>
           <mat-select [(ngModel)]="classificacao">
             <mat-option value="Gerente">Gerente</mat-option>

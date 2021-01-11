@@ -33,6 +33,8 @@ button {
   background: #e8a612;
   color: white;
   font-size: 1.6rem;
+  margin-top: 20px;
+
   height: 40px;
 }
 .position {
@@ -44,15 +46,16 @@ button {
 ::ng-deep .mat-focused .mat-form-field-label {
   color: white !important;
 }
-::ng-deep.mat-form-field-underline, ::ng-deep.mat-form-field-ripple {
+::ng-deep.mat-form-field-underline,
+::ng-deep.mat-form-field-ripple {
   background-color: white !important;
 }
-mat-label{
-  color: white!important;
+mat-label {
+  color: white !important;
 }
-.senha-eye{
+.senha-eye {
   display: flex;
 }
-.senha-eye .material-icons{
+.senha-eye .material-icons {
   cursor: pointer;
 }

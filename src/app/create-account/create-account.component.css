@@ -13,7 +13,8 @@
   justify-content: center;
   align-items: center;
 }
-.title, .form {
+.title,
+.form {
   color: white;
 }
 .action button {
@@ -34,8 +35,7 @@
   flex-wrap: wrap;
 }
 .half {
-  flex: 1 1 300px;
-  max-width: 430px;
+  flex: 1 1 305px;
 }
 ::ng-deep .mat-focused .mat-form-field-label {
   color: white !important;
@@ -51,11 +51,25 @@ mat-label {
   color: white !important;
 }
 ::ng-deep .mat-select-arrow {
-  border-top: 5px solid white!important;
+  border-top: 5px solid white !important;
 }
-.senha-eye{
+.senha-eye {
   display: flex;
 }
-.senha-eye .material-icons{
+.senha-eye .material-icons {
   cursor: pointer;
+}
+.left {
+  padding-right: 5px;
+}
+.right {
+  padding-left: 5px;
+}
+@media (max-width: 767px) {
+  .left {
+    padding-right: 0px;
+  }
+  .right {
+    padding-left: 0px;
+  }
 }

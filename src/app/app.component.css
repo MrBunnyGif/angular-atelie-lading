@@ -15,12 +15,13 @@
 }
 .land-content {
   display: flex;
-
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
 .actions {
   width: 30%;
+  flex: 0 1 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,13 +33,16 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+  flex-wrap: wrap;
 }
 .btns button {
   background: #e8a612;
   color: white;
   font-size: 1.4rem;
-  width: 40%;
   height: 40px;
+  max-width: 170px;
+  margin: 5px 0;
+  flex: 0 1 160px;
 }
 .image {
   display: flex;
@@ -82,8 +86,46 @@
   display: flex;
   justify-content: space-between;
   margin: auto;
+  flex-wrap: wrap;
 }
 .base-main a {
   text-decoration: none;
   color: darkslategray;
+}
+@media (max-width: 1023px) {
+  .footer-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    flex-flow: column-reverse;
+  }
+  .footer {
+    height: auto;
+    text-align: center;
+  }
+  .footer .desc {
+    width: 90%;
+  }
+  .btns button {
+    flex: 1 1 160px;
+    max-width: initial;
+  }
+}
+@media (max-width: 767px) {
+  .image {
+    margin: auto;
+  }
+}
+@media (max-width: 925px) {
+  .land-content {
+    justify-content: center;
+  }
+  .header {
+    align-items: center;
+  }
+  .image {
+    display: none;
+  }
 }
