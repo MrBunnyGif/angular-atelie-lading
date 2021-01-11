@@ -8,29 +8,28 @@ import { AbstractControl, FormBuilder, FormControl, Validators } from '@angular/
 export class CreateAccountComponent implements OnInit {
   @ViewChild('name') primeiroCampo: ElementRef;
   @ViewChild('mail') mail: ElementRef;
-  senha = "";
-  confirmSenha = "";
+  // senha = "";
+  // confirmSenha = "";
   empresa = "";
   classificacao = "";
-  hidePassword: boolean = true
-  errors = {
-    email: false
-  }
-  email = new FormControl('', [Validators.required, Validators.email]);
-  nome = new FormControl('', [Validators.required]);
-  // CPF = new FormControl('', [Validators.required]);
-  CPF = new FormControl({ value: null, disabled: false }, this.isValidCpf());
+  hidePassword: boolean = true;
 
-  getEmailErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a valInsira um endereço de e-mailue';
-    }
-    return this.email.hasError('email') ? 'O e-mail não é válido' : '';
-  }
+  email = new FormControl('', [Validators.required, Validators.email]);
+  senha = new FormControl('', [Validators.required, Validators.required, Validators.minLength(6)]);
+  confirmSenha = new FormControl('', [Validators.required, Validators.minLength(6), this.verifyPassword()]);
+  nome = new FormControl('', [Validators.required]);
+  CPF = new FormControl({ value: null, disabled: false }, this.isValidCpf());
 
   constructor() { }
 
   ngOnInit(): void { }
+
+  getEmailErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'Insira um endereço de e-mail';
+    }
+    return this.email.hasError('email') ? 'O e-mail não é válido' : '';
+  }
 
   ngAfterViewInit(): void {
     setTimeout(() => this.primeiroCampo.nativeElement.focus(), 300);
@@ -84,5 +83,21 @@ export class CreateAccountComponent implements OnInit {
       }
       return null;
     };
+  }
+
+  teste() {
+    console.log(this.nome.value)
+  }
+
+  verifyPassword() {
+    return (control: AbstractControl): Validators => {
+      const confirmSenha = control.value;
+      if (this.senha.value != confirmSenha) {
+        return { passwordNotValid: true }
+      }
+      else {
+        return null
+      }
+    }
   }
 }
