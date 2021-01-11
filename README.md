@@ -1,27 +1,36 @@
-# AtelieLandingPage
+# Um Brinde na Europa
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+Projeto que visa o desenvolvimento de uma landing page responsiva com cadastro e login
 
-## Development server
+# Requisitos
+Recomendamos a utilização das seguintes versões:
+- Node ^2.20.0
+- NPM ^6.14.8
+- Angular: 11.0.7
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Instalação
+Feita a instalação dos requisitos citados anterirormente, é preciso instalar as dependências do projeto.
 
-## Code scaffolding
+Para instalar todas as dependências do projeto, utilize o seguinte comando: 
+```sh
+npm install
+```
+E para iniciar o projeto: 
+```sh
+ng serve --open
+```
+O projeto iniciará em [http://localhost:4200/](http://localhost:4200/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Tecnologia
+Para o projeto foi utilizado:
+- AngularJS
+- CSS
+- HTML
+- TypeScript
 
-## Build
+# Pontos de melhoria
+Gostaria de deixar um feedback sobre o projeto?
+Fique a vontade para entrar em contato!
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Observações
+É possível testar uma versão online do programa através do link  [https://mrbunnygif.github.io/](https://mrbunnygif.github.io/)
