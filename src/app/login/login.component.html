@@ -1,0 +1,29 @@
+<div class="container position">
+  <div class="content position">
+    <h2>
+      LOGIN
+    </h2>
+    <div class="form">
+      <mat-form-field appearance="legacy">
+        <mat-label>Digite seu cpf</mat-label>
+        <input mask="CPF_CNPJ" matInput>
+      </mat-form-field>
+      <mat-form-field class="pass" appearance="standard">
+        <mat-label>Digite sua senha</mat-label>
+        <input matInput type="password">
+        <mat-error></mat-error>
+      </mat-form-field>
+    </div>
+    <div class="options">
+      <a routerLink="create-account">
+        Ainda não é cadastrado?
+      </a>
+      <a>
+        Esqueceu sua senha?
+      </a>
+    </div>
+    <button mat-flat-button>
+      Login
+    </button>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+.cointainer {
+  background-image: url("../../assets/background-marrom.png");
+  min-height: 300px;
+}
+.content {
+  width: 90%;
+  max-width: 1000px;
+  text-align: center;
+  padding: 40px 0;
+}
+.position {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title, .form {
+  color: white;
+}
+.action button {
+  padding: 0 30px;
+  background: #e8a612;
+  font-size: 1.2rem;
+  color: white;
+  height: 40px;
+}
+.name {
+  width: 90%;
+}
+.line {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.half {
+  flex: 1 1 300px;
+  max-width: 430px;
+}
+::ng-deep .mat-focused .mat-form-field-label {
+  color: white !important;
+}
+::ng-deep.mat-form-field-underline,
+::ng-deep.mat-form-field-ripple {
+  background-color: white !important;
+}
+mat-label {
+  color: white !important;
+}
+:host /deep/ .mat-select-value-text {
+  color: white !important;
+}
+::ng-deep .mat-select-arrow {
+  border-top: 5px solid white!important;
+}

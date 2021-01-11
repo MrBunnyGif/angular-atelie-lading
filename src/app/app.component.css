@@ -49,13 +49,19 @@
   width: 100%;
 }
 .footer {
-  margin: auto;
+  background-image: url("../assets/background-cinza.png");
+  height: 300px;
+  padding: 20px 0;
   display: flex;
-  justify-content: space-around;
 }
 .footer .desc {
   width: 60%;
   color: #444444;
+}
+.footer-main {
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
 }
 .desc p {
   text-align: justify;
